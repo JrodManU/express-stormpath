@@ -6,7 +6,7 @@ var uuid = require('uuid');
 
 var helpers = require('../helpers');
 
-function prepateMeTestFixture(stormpathApplication,cb){
+function prepateMeTestFixture(stormpathApplication,cb) {
 
   var app = helpers.createStormpathExpressApp({
     application: stormpathApplication,
@@ -48,8 +48,8 @@ describe('current user (/me) route', function() {
     });
   });
 
-  it('should respond with the expanded account object', function(done){
-    prepateMeTestFixture(stormpathApplication, function(fixture){
+  it('should respond with the expanded account object', function(done) {
+    prepateMeTestFixture(stormpathApplication, function(fixture) {
       var agent = request.agent(fixture.expressApp);
       agent
         .post('/login')
@@ -69,7 +69,7 @@ describe('current user (/me) route', function() {
           agent
             .get('/me')
             .expect(200)
-            .end(function(err,res){
+            .end(function(err,res) {
               if (err) {
                 return done(err);
               }

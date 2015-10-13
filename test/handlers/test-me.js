@@ -28,7 +28,7 @@ function prepateMeTestFixture(stormpathApplication,cb){
   app.on('stormpath.ready', cb.bind(null,fixture));
 }
 
-describe('current user (/me) route',function() {
+describe('current user (/me) route', function() {
 
   var newUser = helpers.newUser();
   var stormpathApplication = null;
@@ -48,8 +48,8 @@ describe('current user (/me) route',function() {
     });
   });
 
-  it('should respond with the expanded account object',function(done){
-    prepateMeTestFixture(stormpathApplication,function(fixture){
+  it('should respond with the expanded account object', function(done){
+    prepateMeTestFixture(stormpathApplication, function(fixture){
       var agent = request.agent(fixture.expressApp);
       agent
         .post('/login')

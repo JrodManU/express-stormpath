@@ -50,7 +50,7 @@ function preparePostLoginPassThroughTestFixture(stormpathApplication,cb){
   fixture.expressApp.on('stormpath.ready', cb.bind(null,fixture));
 }
 
-describe('Post-Login Handler',function() {
+describe('Post-Login Handler', function() {
 
   var stormpathApplication = null;
   var newUser = helpers.newUser();
@@ -70,11 +70,11 @@ describe('Post-Login Handler',function() {
     });
   });
 
-  describe('with a JSON post',function(){
+  describe('with a JSON post', function(){
 
-    it('should be given the expanded account object',function(done){
+    it('should be given the expanded account object', function(done){
 
-      preparePostLoginExpansionTestFixture(stormpathApplication,function(fixture){
+      preparePostLoginExpansionTestFixture(stormpathApplication, function(fixture){
         request(fixture.expressApp)
           .post('/login')
           .set('Accept', 'application/json')
@@ -93,9 +93,9 @@ describe('Post-Login Handler',function() {
       });
     });
 
-    it('should allow me to do work, then call next (let framework end the response)',function(done){
+    it('should allow me to do work, then call next (let framework end the response)', function(done){
 
-      preparePostLoginPassThroughTestFixture(stormpathApplication,function(fixture){
+      preparePostLoginPassThroughTestFixture(stormpathApplication, function(fixture){
         request(fixture.expressApp)
           .post('/login')
           .set('Accept', 'application/json')
@@ -115,11 +115,11 @@ describe('Post-Login Handler',function() {
     });
   });
 
-  describe('with a Form-Encoded post',function(){
+  describe('with a Form-Encoded post', function(){
 
-    it('should be given the expanded account object',function(done){
+    it('should be given the expanded account object', function(done){
 
-      preparePostLoginExpansionTestFixture(stormpathApplication,function(fixture){
+      preparePostLoginExpansionTestFixture(stormpathApplication, function(fixture){
         request(fixture.expressApp)
           .post('/login')
           .send({login: newUser.email, password: newUser.password})
@@ -136,9 +136,9 @@ describe('Post-Login Handler',function() {
       });
     });
 
-    it('should allow me to do work, then call next (let framework end the response)',function(done){
+    it('should allow me to do work, then call next (let framework end the response)', function(done){
 
-      preparePostLoginPassThroughTestFixture(stormpathApplication,function(fixture){
+      preparePostLoginPassThroughTestFixture(stormpathApplication, function(fixture){
         request(fixture.expressApp)
           .post('/login')
           .send({login: newUser.email, password: newUser.password})
